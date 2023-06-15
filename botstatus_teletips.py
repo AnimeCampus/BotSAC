@@ -27,7 +27,7 @@ async def main_teletips():
     async with app:
             while True:
                 print("Checking...")
-                xxx_teletips = f"📈 | **Real-Time Bot Status**"
+                xxx_teletips = f"📈 | **ʀᴇᴀʟ ᴛɪᴍᴇ ʙᴏᴛ ʟɪᴠᴇ sᴛᴀᴛᴜs**"
                 for bot in BOT_LIST:
                     try:
                         yyy_teletips = await app.send_message(bot, "/start")
@@ -37,23 +37,23 @@ async def main_teletips():
                         async for ccc in zzz_teletips:
                             bbb = ccc.id
                         if aaa == bbb:
-                            xxx_teletips += f"\n\n🤖  @{bot}\n        └ **Down** ❌"
+                            xxx_teletips += f"\n\n🤖  @{bot}\n        └ **ᴅᴏᴡɴ** ❌"
                             for bot_admin_id in BOT_ADMIN_IDS:
                                 try:
-                                    await app.send_message(int(bot_admin_id), f"🚨 **Beep! Beep!! @{bot} is down** ❌")
+                                    await app.send_message(int(bot_admin_id), f"🚨 **ʙᴇᴇᴘ! ʙᴇᴇᴘ!! @{bot} ɪs ᴅᴏᴡɴ** ❌")
                                 except Exception:
                                     pass
                             await app.read_chat_history(bot)
                         else:
-                            xxx_teletips += f"\n\n🤖  @{bot}\n        └ **Alive** ✅"
+                            xxx_teletips += f"\n\n🤖  @{bot}\n        └ **ᴀʟɪᴠᴇ** ✅"
                             await app.read_chat_history(bot)
                     except FloodWait as e:
                         await asyncio.sleep(e.x)            
                 time = datetime.datetime.now(pytz.timezone(f"{TIME_ZONE}"))
                 last_update = time.strftime(f"%d %b %Y at %I:%M %p")
-                xxx_teletips += f"\n\n✔️ Last checked on: {last_update} ({TIME_ZONE})\n\n<i>♻️ Refreshes automatically</i>"
+                xxx_teletips += f"\n\n✔️ ʟᴀsᴛ ᴄʜᴇᴄᴋᴇᴅ ᴏɴ: {last_update} ({TIME_ZONE})\n\n<i>♻️ ʀᴇғʀᴇsʜɪɴɢ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ</i>"
                 await app.edit_message_text(int(CHANNEL_OR_GROUP_ID), MESSAGE_ID, xxx_teletips)
-                print(f"Last checked on: {last_update}")                
+                print(f"ʟᴀsᴛ ᴄʜᴇᴄᴋᴇᴅ ᴏɴ: {last_update}")                
                 await asyncio.sleep(6300)
                         
 app.run(main_teletips())
